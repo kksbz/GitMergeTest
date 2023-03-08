@@ -2,7 +2,26 @@
 
 namespace GitMergeTest
 {
-    // { 2023.03.08 Ruler 클래스 코드 위치 변경 / Alpha
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // { 2023.03.08 유저 입력 기능을 추가함. / Beta
+            string userInput = string.Empty;
+            Console.WriteLine("이 프로그램은 Cm 를 Inch 로 변환하는 프로그램 입니다.");
+            Console.Write("Cm 값을 입력 : ");
+            userInput = Console.ReadLine();
+
+            int cmInput = 0;
+            int.TryParse(userInput, out cmInput);
+
+            Ruler ruler = new Ruler(cmInput);
+            // } 2023.03.08 유저 입력 기능을 추가함. / Beta
+
+            ruler.Run();
+        }
+    }
+
     public class Ruler
     {
         private const float ONE_INCH = 2.54f;
@@ -19,13 +38,4 @@ namespace GitMergeTest
         }
     }
     // } 2023.03.08 Ruler 클래스 코드 위치 변경 / Alpha
-
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Ruler ruler = new Ruler(10);
-            ruler.Run();
-        }
-    }
 }
